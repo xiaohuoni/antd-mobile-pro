@@ -3,6 +3,8 @@ import { connect } from 'dva';
 import styles from './page.less';
 import {Button,List,InputItem} from 'antd-mobile';
 import { createForm } from 'rc-form';
+import Link from 'umi/link';
+
 function App({login,dispatch,form:{getFieldProps,validateFields},}) {
     const {account,password} = login
     const okHandler = () => {
@@ -17,7 +19,7 @@ function App({login,dispatch,form:{getFieldProps,validateFields},}) {
       }; 
     return (
         <div className={styles.normal}>
-            <List renderHeader={() => '登录'}>
+            <List renderHeader={() => (<div>登录<Link to="/">返回首页</Link></div>)}>
           <InputItem
             {...getFieldProps('account',{
                 initialValue:account
