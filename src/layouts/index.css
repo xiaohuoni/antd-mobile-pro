@@ -1,0 +1,8 @@
+.barColor {
+  color: white;
+}
+.singleFooMenu {
+  position: absolute;
+  z-index: 90 !important;
+  width: 60%;
+}
