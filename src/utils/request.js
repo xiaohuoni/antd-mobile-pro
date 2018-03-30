@@ -1,9 +1,7 @@
 import qs from 'qs'
 import fetch from 'dva/fetch';
-// import { notification } from 'antd';
 import {Toast}from 'antd-mobile';
-
-// import { routerRedux } from 'dva/router';
+import router from 'umi/router';
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -26,7 +24,7 @@ function checkStatus(response) {
     return response;
   }
   const errortext = codeMessage[response.status] || response.statusText;
-  Toast.fail(`请求错误 ${response.status}: ${response.url}\t${errortext}`);
+  Toast.fail(`请求错误 ${response.status}:${errortext}`);
   const error = new Error(errortext);
   error.name = response.status;
   error.response = response;
@@ -42,9 +40,9 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
   const defaultOptions = {
-    // credentials: 'include',
-    mode: 'cors',
-    cache: "force-cache"  
+    credentials: 'include',
+    // mode: 'cors',
+    // cache: "force-cache"  
   };
   const newOptions = { ...defaultOptions, ...options };
   if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
@@ -75,26 +73,22 @@ export default function request(url, options) {
     })
     .catch((e) => {
       console.log("请求错误");
-      console.log(e);
-      
-      // const  dispatch  = window.g_app._store.dispatch;
-      // const status = e.name;
-      // if (status === 401) {
-      //   dispatch({
-      //     type: 'login/logout',
-      //   });
-      //   return;
-      // }
+      const  dispatch  = window.g_app._store.dispatch;
+      const status = e.name;
+      if (status === 401) {
+        router.push('/login')
+        return;
+      }
       // if (status === 403) {
-      //   dispatch(routerRedux.push('/exception/403'));
+      //   dispatch(router.push('/exception/403'));
       //   return;
       // }
       // if (status <= 504 && status >= 500) {
-      //   dispatch(routerRedux.push('/exception/500'));
+      //   dispatch(router.push('/exception/500'));
       //   return;
       // }
       // if (status >= 404 && status < 422) {
-      //   dispatch(routerRedux.push('/exception/404'));
+      //   dispatch(router.push('/exception/404'));
       // }
     });
 }

@@ -23,12 +23,12 @@ function App({qrcode,dispatch}) {
           (
               <div>
              <span>Github地址:</span>
-            <iframe src="https://ghbtns.com/github-btn.html?user=xiaohuoni&repo=antd-mobile-pro&type=star&count=true&size=large" frameBorder="0" scrolling="1" width="160px" height="30px" style={{    verticalAlign: 'sub'}}></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=xiaohuoni&repo=antd-mobile-pro&type=star&count=true&size=large" frameBorder="0" scrolling="1" width="160px" height="30px" style={{    verticalAlign: 'sub'}} title="github"></iframe>
           
           </div>)
       }
       extra={
-          (<iframe src="https://ghbtns.com/github-btn.html?user=xiaohuoni&type=follow&count=true&size=large" frameBorder="0" scrolling="0" width="220px" height="30px"></iframe>)
+          (<iframe src="https://ghbtns.com/github-btn.html?user=xiaohuoni&type=follow&count=true&size=large" frameBorder="0" scrolling="0" width="220px" height="30px" title="github"></iframe>)
       }
       />
 

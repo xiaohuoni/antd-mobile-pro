@@ -11,7 +11,7 @@ export default {
     *login({ payload }, { call, put }) {
       const data = yield call(loginService.login, payload);
       if (data.success) {
-        router.push("/");
+        router.push("/authtest");
       } else {
         Toast.fail(data.message);
       }

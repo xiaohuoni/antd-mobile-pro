@@ -1,9 +1,10 @@
-
-html, body, :global(#root) {
+html,
+body,
+:global(#root) {
   height: 100%;
   background-color: #fff;
 }
-.am-button{
+.am-button {
   font-size: 0.3rem;
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;

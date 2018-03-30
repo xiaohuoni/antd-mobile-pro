@@ -12,6 +12,9 @@ module.exports = {
   api: {
     APIV2:APIV2,
     userLogin: `${APIV1}/login`,
-    users: `${APIV1}/users`
+    users: `${APIV1}/users`,
+    authtestQuery200:`${APIV1}/authtestQuery200`,
+    authtestQuery401:`${APIV1}/authtestQuery401`,
+    authtestQuery403:`${APIV1}/authtestQuery403`
   },
 }
